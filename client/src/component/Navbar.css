@@ -1,0 +1,27 @@
+.container{
+    max-width: 144rem;
+    padding: 4.2rem 2.4rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+ul{
+    display: flex;
+    gap: 3.2rem;
+}
+a:hover,
+a.active {
+  color: #535bf2;
+    position: relative;
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 80%;
+        height: 0.5rem;
+        background-color: rgb(255, 255, 255);
+      }
+}
