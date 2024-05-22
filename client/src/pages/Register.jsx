@@ -15,7 +15,7 @@ function Register() {
 
   const navigate = useNavigate()
 
-  const {storeTokenInLS} = useAuth()
+  const {storeTokenInLS,WebClassUrl} = useAuth()
 
   const handleinput = function (e) {
     let name = e.target.name
@@ -30,7 +30,7 @@ function Register() {
     // console.log(user)
   
   try {
-    const response = await fetch(`http://localhost:4000/api/auth/register`,{method:"POST",headers:{
+    const response = await fetch(`${WebClassUrl}/api/auth/register`,{method:"POST",headers:{
       "Content-Type":"application/json"
     },
     body:JSON.stringify(user),

@@ -12,7 +12,7 @@ const [contact,setContact] = useState({
 
 const [userData,setUserData]= useState(true)
 
-const {user} = useAuth()
+const {user,WebClassUrl} = useAuth()
 if (userData && user) {
   setContact({
     username:user.username,
@@ -36,7 +36,7 @@ const handlesubmit = async (e)=>{
   // console.log(contact)
 
   try {
-    const response = await fetch('http://localhost:4000/api/form/contact',
+    const response = await fetch(`${WebClassUrl}/api/form/contact`,
       {method:"POST",
       header:{
         "Content-Type":"application/json"

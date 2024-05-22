@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom'
 
 function Adminuser() {
     const [users,setUsers]= useState([])
-    const {AuthorizationToken} = useAuth()
+    const {AuthorizationToken,WebClassUrl} = useAuth()
     const getAllUsersData= async ()=>{
         try {
-            const response = await fetch('http://localhost:4000/api/admin/users',{
+            const response = await fetch(`${WebClassUrl}/api/admin/users`,{
                 method:"GET",
                 headers:{
                     Authorization: AuthorizationToken
@@ -26,7 +26,7 @@ function Adminuser() {
         try {
             
         
-        const response = await fetch(`http://localhost:4000/api/admin/users/delete/${id}`,{
+        const response = await fetch(`${WebClassUrl}/api/admin/users/delete/${id}`,{
                 method:"DELETE",
                 headers:{
                     Authorization: AuthorizationToken

@@ -12,12 +12,12 @@ function AdminUpdate() {
     })
 
     const params = useParams()
-    const {AuthorizationToken} = useAuth()
+    const {AuthorizationToken,WebClassUrl} = useAuth()
 
     const getSingleUserdata = async (id)=>{
         try {
             
-        const response = await fetch(`http://localhost:4000/api/admin/users/${params.id}`,{
+        const response = await fetch(`${WebClassUrl}/api/admin/users/${params.id}`,{
                 method:"GET",
                 headers:{
                     Authorization: AuthorizationToken
@@ -53,7 +53,7 @@ function AdminUpdate() {
     const handleSubmit = async (e)=>{
       e.preventDefault()
       try {
-        const response = await fetch(`http://localhost:4000/api/admin/users/update/${params.id}`,{
+        const response = await fetch(`${WebClassUrl}/api/admin/users/update/${params.id}`,{
           method:"PATCH",
           headers:{
               "Content-Type":"application/json",

@@ -9,6 +9,7 @@ export const AuthProvider = ({children})=>{
     const [services, setServices] = useState([])
     const AuthorizationToken = `Bearer ${token}`
 
+    const WebClassUrl = 'https://mern-webclass-1.onrender.com/'
 
     const storeTokenInLS = (serverToken) => {
         setToken(serverToken)
@@ -27,7 +28,7 @@ export const AuthProvider = ({children})=>{
     const userAuthentication = async()=>{
         try {
             setIsLoading(true)
-            const response = await fetch('http://localhost:4000/api/auth/user',{
+            const response = await fetch(`${WebClassUrl}/api/auth/user`,{
                 method:"GET",
                 headers:{
                     Authorization: AuthorizationToken
@@ -46,7 +47,7 @@ export const AuthProvider = ({children})=>{
     // to fetch the services teda fron DB 
     const getServices = async ()=>{
         try {
-            const response = await fetch("http://localhost:4000/api/data/service",{
+            const response = await fetch(`${WebClassUrl}/api/data/service`,{
                 method:"GET"
             })
             // console.log(response)
@@ -66,7 +67,7 @@ export const AuthProvider = ({children})=>{
         userAuthentication();
     },[])
 
-    return (<AuthContext.Provider value={{isLoggedIn,storeTokenInLS,LogoutUser,user,services,AuthorizationToken,isLoading}}>
+    return (<AuthContext.Provider value={{isLoggedIn,storeTokenInLS,LogoutUser,user,services,AuthorizationToken,isLoading,WebClassUrl}}>
         {children}
     </AuthContext.Provider>)
 }
