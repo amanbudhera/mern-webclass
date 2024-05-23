@@ -9,7 +9,7 @@ export const AuthProvider = ({children})=>{
     const [services, setServices] = useState([])
     const AuthorizationToken = `Bearer ${token}`
 
-    const WebClassUrl = 'https://mern-webclass-1.onrender.com/'
+    const WebClassUrl = 'https://mern-webclass-1.onrender.com'
 
     const storeTokenInLS = (serverToken) => {
         setToken(serverToken)
